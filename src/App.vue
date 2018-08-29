@@ -14,9 +14,6 @@
      console.log(result)*/
        this.$store.dispatch('getAddress')
      },
-    /*created(){
-
-    },*/
     components:{
       FooterGuide
     }
