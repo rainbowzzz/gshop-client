@@ -26,7 +26,7 @@ export const reqCaptchas = () => ajax('/api/captchas')
 /**
  * 账号密码登录
  */
-export const accountLogin = (name, pwd, captcha) => ajax('/api/login_pwd', {
+export const reqPwdLogin = ({name, pwd, captcha}) => ajax('/api/login_pwd', {
   name,
   pwd,
   captcha
@@ -35,12 +35,12 @@ export const accountLogin = (name, pwd, captcha) => ajax('/api/login_pwd', {
 /**
  * 获取短信验证码
  */
-export const mobileCode = phone => ajax('/api/sendcode', {phone})
+export const reqSendCode = phone => ajax('/api/sendcode', {phone})
 
 /**
  * 手机号验证码登录
  */
-export const phoneLogin = (phone, code) => ajax('/api/login_sms', {phone, code}, 'POST')
+export const reqMsgLogin = (phone, code) => ajax('/api/login_sms', {phone, code}, 'POST')
 
 /**
  * 获取用户信息(根据会话)

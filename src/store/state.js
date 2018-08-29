@@ -6,4 +6,5 @@ export default {
   address: {},
   categorys: [],
   shops: [],
+  user:{}
 }
