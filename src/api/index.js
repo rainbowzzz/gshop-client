@@ -46,3 +46,9 @@ export const reqMsgLogin = (phone, code) => ajax('/api/login_sms', {phone, code}
  * 获取用户信息(根据会话)
  */
 export const reqUser = () => ajax('/api/userinfo')
+
+export const reqLogOut= () => ajax('/api/logout')
+
+export const reqShopInfo = () => ajax('/info')
+export const reqShopRating = () => ajax('/rating')
+export const reqShopGoods = () => ajax('/goods')

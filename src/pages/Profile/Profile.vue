@@ -91,16 +91,37 @@
         </div>
       </a>
     </section>
+
+
+    <section class="profile_my_order border-1px" v-show="user._id">
+     <mt-button type="danger" style="width: 100%" @click="logout">退出登录</mt-button>
+    </section>
   </section>
 </template>
 <script>
   import {mapState} from 'vuex'
+  import {MessageBox} from 'mint-ui'
+  import MtButton from "../../../node_modules/mint-ui/packages/button/src/button.vue";
   export default {
+    components: {MtButton},
     data() {
       return {}
     },
     computed:{
       ...mapState(['user'])
+    },
+    methods:{
+      logout(){
+        MessageBox.confirm('Are you sure?').then(
+          action=>{
+            this.$store.dispatch('logout')
+          },
+          action=>{
+            console.log('取消登录')
+
+          },
+        );
+      }
     }
   }
 </script>
