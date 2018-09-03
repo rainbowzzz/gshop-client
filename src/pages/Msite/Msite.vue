@@ -113,7 +113,7 @@
       categorysArr(){
        // const {categorys}=this
         const {categorys} = this
-        console.log(categorys)
+        //console.log(categorys)
         const max=8;
         const bigArr=[];
         let smallArr=[];

@@ -10,14 +10,13 @@ import {
   RECEIVE_INFO,
   RECEIVE_RATING,
   INCREMENT_FOOD_COUNT,
-  DECREMENT_FOOD_COUNT
+  DECREMENT_FOOD_COUNT,
+  CLEAR_CART
 } from './mutation-types'
 import Vue from 'vue'
 
 export default {
- /* [RECEIVE_ADDRESS](state,{address}){
-    state.address=address
-  },*/
+
   [RECEIVE_ADDRESS] (state, {address}) {
     state.address = address
   },
@@ -59,6 +58,10 @@ export default {
       }
     }
   },
+  [CLEAR_CART](state){
+    state.shopCount.forEach(food=>food.count=0)
+    state.shopCount=[]
+  }
 
 }
 

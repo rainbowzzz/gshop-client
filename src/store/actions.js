@@ -11,7 +11,8 @@ import {
   RECEIVE_RATING,
   RECEIVE_GOODS,
   INCREMENT_FOOD_COUNT,
-  DECREMENT_FOOD_COUNT
+  DECREMENT_FOOD_COUNT,
+  CLEAR_CART
 } from './mutation-types'
 import {reqShopGoods, reqShopInfo, reqShopRating} from "../api/index";
 export default {
@@ -82,7 +83,10 @@ export default {
     }else {
       commit(DECREMENT_FOOD_COUNT,{food})
     }
-
     },
+  clearCart({commit}){
+      commit(CLEAR_CART)
+
+  }
 }
 
