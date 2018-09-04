@@ -11,7 +11,7 @@
           <div class="delivery-money">配送费￥{{info.deliveryPrice}}</div>
         </div>
       </section>
-      <div class="split"></div>
+      <Split/>
       <section class="section">
         <h3 class="section-title">活动与服务</h3>
         <div class="activity">
@@ -25,7 +25,7 @@
           </div>
         </div>
       </section>
-      <div class="split"></div>
+      <Split/>
 
       <section class="section">
         <h3 class="section-title">商家实景</h3>
@@ -38,7 +38,7 @@
           </ul>
         </div>
       </section>
-      <div class="split"></div>
+      <Split/>
 
       <section class="section">
         <h3 class="section-title">商家信息</h3>
@@ -68,7 +68,7 @@
 <script>
   import BScroll from 'better-scroll'
   import {mapState} from 'vuex'
-  import Star from '../../../components/Star/Star.vue'
+  import Split from '../../../components/Split/Split.vue'
 
   export default {
     data() {
@@ -86,15 +86,42 @@
           click:true
         })*/
         this.$nextTick(()=>{
-          new BScroll('.shop-info',{
+         this.ratigScroll=new BScroll(this.$refs.info,{
             click:true
           })
+          this.picsScroll =new BScroll(this.$refs.pic,{
+            click:true,
+            scrollX:true
+          })
+          this.info.pic && this.setUlWidth()
+
+
+
         })
       })
     },
+    watch:{
+      info(){
+        this.$nextTick(()=>{
+          this.ratigScroll.refresh();
+          this.picsScroll.refresh();
+          this.setUlWidth();
+        })
+      }
+    },
+    methods:{
+      setUlWidth(){
+        const ul=this.$refs.ul;
+        const liWidth=120
+        const space=6
+        const size=this.info.pics.length;
+        ul.style.width=(liWidth+space)*size-space+'px'
+      }
+    },
     components:{
-      Star
+      Split
     }
+
   }
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
